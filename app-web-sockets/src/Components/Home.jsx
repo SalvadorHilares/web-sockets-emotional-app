@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {getMovies} from "../Redux/actions"
 import ReactPaginate from "react-paginate";
+import styles from "./Home.module.css"
 import Card from "./Card"
 
 const Home = () => {
@@ -22,7 +23,8 @@ const Home = () => {
 
   return (
     <>
-    <h1>PELICULAS EN TENDENCIA</h1>
+    <h1 className={styles.title}>PELICULAS EN TENDENCIA</h1>
+    <ul className={styles.cardGrid}>
       {
       movies.map((movie) => {
         return <Card
@@ -33,6 +35,7 @@ const Home = () => {
         />}
       )
       }
+      </ul>
       <ReactPaginate
         previousLabel={"previous"}
         nextLabel={"next"}
@@ -41,16 +44,16 @@ const Home = () => {
         marginPagesDisplayed={2}
         pageRangeDisplayed={3}
         onPageChange={handlePageClick}
-        containerClassName={"inline-flex -space-x-px"}
-        pageClassName={"px-3 py-2 leading-tight text-blue-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}
+        containerClassName={"pagination justify-content-center"}
+        pageClassName={"page-item"}
         pageLinkClassName={"page-link"}
-        previousClassName={"px-3 py-2 ml-0 leading-tight text-blue-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}
+        previousClassName={"page-item"}
         previousLinkClassName={"page-link"}
-        nextClassName={"px-3 py-2 leading-tight text-blue-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}
+        nextClassName={"page-item"}
         nextLinkClassName={"page-link"}
-        breakClassName={"px-3 py-2 leading-tight text-blue-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}
+        breakClassName={"page-item"}
         breakLinkClassName={"page-link"}
-        activeClassName={"px-3 py-2 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"}
+        activeClassName={"active"}
       />
     </>
   )

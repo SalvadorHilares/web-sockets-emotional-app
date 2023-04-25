@@ -1,0 +1,9 @@
+.cardGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 450px);
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+}

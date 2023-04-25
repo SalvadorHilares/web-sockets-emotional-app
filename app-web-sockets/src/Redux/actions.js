@@ -1,5 +1,6 @@
 export const GET_MOVIES = 'GET_MOVIES';
 export const GET_MOVIES_DETAILS = 'GET_MOVIES_DETAILS';
+export const GET_REVIEWS = 'GET_REVIEWS';
 
 export const getMovies = (page) => {
     return async dispatch =>{
@@ -33,4 +34,21 @@ export const getMoviesDetails = (id) => {
             payload: data
         });
     };
+}
+
+export const getReviews = (id) => {
+    return async dispatch =>{
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=b6f6827dfc33112b2442253451628eaf&language=en-US&page=1`,
+        {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        const data = await res.json();
+        dispatch({
+            type: GET_REVIEWS,
+            payload: data.results
+        });
+    }
 }

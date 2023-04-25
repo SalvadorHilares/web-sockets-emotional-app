@@ -1,7 +1,8 @@
-import { GET_MOVIES, GET_MOVIES_DETAILS } from "./actions";
+import { GET_MOVIES, GET_MOVIES_DETAILS, GET_REVIEWS} from "./actions";
 
 const initialState = {
     movies: [],
+    reviews: [],
     movieDetails: {}
 };
 
@@ -16,6 +17,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 movieDetails: action.payload
+            };
+        case GET_REVIEWS:
+            return {
+                ...state,
+                reviews: action.payload
             };
         default:
             return { ...state };
