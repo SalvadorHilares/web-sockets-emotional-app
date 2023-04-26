@@ -22,7 +22,7 @@ const Home = () => {
   }, [dispatch, page])
 
   return (
-    <>
+    <div className={styles.home}>
     <h1 className={styles.title}>PELICULAS EN TENDENCIA</h1>
     <ul className={styles.cardGrid}>
       {
@@ -55,7 +55,7 @@ const Home = () => {
         breakLinkClassName={"page-link"}
         activeClassName={"active"}
       />
-    </>
+    </div>
   )
 }
 

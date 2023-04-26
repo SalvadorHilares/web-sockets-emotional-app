@@ -1,3 +1,7 @@
+.home{
+    font-family: poppins;
+}
+
 .cardGrid{
     display: grid;
     grid-template-columns: repeat(auto-fill, 450px);
