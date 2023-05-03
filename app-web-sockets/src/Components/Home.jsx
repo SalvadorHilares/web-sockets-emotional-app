@@ -1,46 +1,46 @@
-import React,{useEffect} from 'react'
-import {useDispatch, useSelector} from "react-redux";
-import {getMovies} from "../Redux/actions"
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovies } from "../Redux/actions";
 import ReactPaginate from "react-paginate";
-import styles from "./Home.module.css"
-import Card from "./Card"
+import styles from "./Home.module.css";
+import Card from "./Card";
 
 const Home = () => {
   const totalPage = 500;
   const [page, setPage] = React.useState(1);
   const dispatch = useDispatch();
-  const movies = useSelector(state => state.movies)
+  const movies = useSelector((state) => state.movies);
 
   const handlePageClick = (data) => {
     const selectedPage = data.selected + 1;
     setPage(selectedPage);
-    dispatch(getMovies(page))
+    dispatch(getMovies(page));
   };
 
   useEffect(() => {
-    dispatch(getMovies(page))
-  }, [dispatch, page])
+    dispatch(getMovies(page));
+  }, [dispatch, page]);
 
   return (
     <div className={styles.home}>
-    <h1 className={styles.title}>PELICULAS EN TENDENCIA</h1>
-    <ul className={styles.cardGrid}>
-      {
-      movies.map((movie) => {
-        return <Card
-         key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          poster_path={movie.poster_path}
-        />}
-      )
-      }
+      <h1 className={styles.title}>PELICULAS EN TENDENCIA</h1>
+      <ul className={styles.cardGrid}>
+        {movies.map((movie) => {
+          return (
+            <Card
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              poster_path={movie.poster_path}
+            />
+          );
+        })}
       </ul>
       <ReactPaginate
         previousLabel={"previous"}
         nextLabel={"next"}
         breakLabel={"..."}
-        pageCount={totalPage/20}
+        pageCount={totalPage / 20}
         marginPagesDisplayed={2}
         pageRangeDisplayed={3}
         onPageChange={handlePageClick}
@@ -56,7 +56,7 @@ const Home = () => {
         activeClassName={"active"}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
