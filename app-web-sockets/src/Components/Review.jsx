@@ -12,7 +12,7 @@ const Review = (prop) => {
     <>
       <h1>COMENTARIOS DE LA PELICULA</h1>
       <ul>
-        {reviews && reviews.map((review) => (
+        {Array.isArray(reviews)  && reviews.map((review) => (
           <li key={review.id}>
             <p>{review.author}</p>
             <p>{review.content}</p>
