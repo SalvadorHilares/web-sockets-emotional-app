@@ -52,10 +52,9 @@ export const getReviews = (id) => {
       }
     );
     const data = await res.json();
-    console.log(data)
     dispatch({
       type: GET_REVIEWS,
-      payload: data.results,
+      payload: data,
     });
   };
 };
