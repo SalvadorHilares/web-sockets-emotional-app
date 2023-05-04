@@ -4,6 +4,7 @@ import { getMovies } from "../Redux/actions";
 import ReactPaginate from "react-paginate";
 import styles from "./Home.module.css";
 import Card from "./Card";
+import Footer from "./Footer";
 
 const Home = () => {
   const totalPage = 500;
@@ -55,6 +56,7 @@ const Home = () => {
         breakLinkClassName={"page-link"}
         activeClassName={"active"}
       />
+      <Footer/>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMoviesDetails } from '../Redux/actions';
 import { Link, useParams } from 'react-router-dom';
 import Review from './Review';
+import Footer from './Footer';
 
 const CardDetail = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const CardDetail = () => {
       ))}
       <p>{movie.overview}</p>
       <Review key={movie.id} id={movie.id}/>
+      <Footer/>
     </>
   )
 }
